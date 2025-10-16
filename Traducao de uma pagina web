@@ -1,0 +1,40 @@
+!pip install requests beautifulsoup4 openai langchain-openai 
+from langchain_openai.chat_models.azure import AzureChatOpenAI
+
+client = AzureChatOpenAI(
+  azure_endpoint = "https://openai-renata-bootcamp-001.openai.azure.com/",
+  api_key = "1vXU6pziFotNCTwmA5t3ahwKkKKHFTRkeR0zKen3yEXWHYxJSe5mJQQJ99BJACHYHv6XJ3w3AAABACOGsJj4",
+  deployment_name = "gpt-4o-mini",
+  api_version = "2024-02-15-preview", # Added missing api_version
+  max_retries = 0
+)
+
+def translate_article (text, lang):
+  messages = [
+    ("system" , "Voce atua como tradutor de texto."),
+    ("user" , f"Traduza o texto {text} para o idioma {lang} e responda em markdown")
+  ]
+
+  response = client.invoke (messages)
+  print (response.content)
+  return (response.content) # Corrected typo 'respnse' to 'response'
+
+from langchain_openai.chat_models.azure import AzureChatOpenAI
+
+client = AzureChatOpenAI(
+  azure_endpoint = "https://openai-renata-bootcamp-001.openai.azure.com/",
+  api_key = "1vXU6pziFotNCTwmA5t3ahwKkKKHFTRkeR0zKen3yEXWHYxJSe5mJQQJ99BJACHYHv6XJ3w3AAABACOGsJj4",
+  deployment_name = "gpt-4o-mini",
+  api_version = "2024-02-15-preview", # Added missing api_version
+  max_retries = 0
+)
+
+def translate_article (text, lang):
+  messages = [
+    ("system" , "Voce atua como tradutor de texto."),
+    ("user" , f"Traduza o texto {text} para o idioma {lang} e responda em markdown")
+  ]
+
+  response = client.invoke (messages)
+  print (response.content)
+  return (response.content) # Corrected typo 'respnse' to 'response'
